@@ -1,4 +1,4 @@
-import { useMoralis, useWeb3Contract } from "react-moralis";
+import { useMoralis, useWeb3ExecuteFunction, useWeb3Contract } from "react-moralis";
 import { useState, useEffect } from "react";
 import {abi} from "../constants/abi.json"
 export default function LotteryEntrance(){
@@ -13,15 +13,23 @@ export default function LotteryEntrance(){
         msgValue: "100000000000000000", //0.1ETH
     })
     //View Functions
-    const {runContractFunction: getRecentWinner} =  useWeb3Contract({
+    const { data, error, fetch, isFetching, isLoading } =  useWeb3Contract({
         abi: abi,
         contractAddress: "0x91787f06b2b748a154f13135FE1BeA2A22e01F7B",
         functionName: "s_recentWinner",
     })
     
     async function updateUi(){
-        const recentWinnerFromCall = await getRecentWinner();
-        setRecentWinner(recentWinnerFromCall);
+        // const recentWinnerFromCall = await getRecentWinner();
+        if(typeof data === 'undefined')
+            {
+                setRecentWinner(0);
+                console.log("Hello World");
+            }
+        else 
+            {setRecentWinner(1);
+            console.log("Hello World");
+            }
     }
 
     useEffect(()=> {
