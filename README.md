@@ -1,11 +1,9 @@
-Decentralized Raffle
+# Decentralized Raffle
 
-<< Writing the contracts >>
-1. Enter (for a fee!)
-2. Pick a random winner!
-    1. Autonomous. We never have to interact.
-    2. Provably random.
+## Overview
+1. Built a Raffle Smart Contract which allows users to issue tickets for an Entrance fee.
+2. Used Chainlink VRF and Chainlink Keepers to implement the Lottery and frequency of Lottery
+3. Created a basic UI to interface with the Contract.
+4. Built using NPM Hardhat and NextJS
 
-<< Build the Front End >>
-1. Buttons, NextJS
-2. Deploy it in a decentralized context.
+
